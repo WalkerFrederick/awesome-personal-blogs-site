@@ -7,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var blogsRouter = require('./routes/blogs');
 
+var cron = require('./lib/cron');
+
 var app = express();
 
 // view engine setup
