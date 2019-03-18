@@ -36,14 +36,19 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {blogs: []}
+    this.state = {
+      blogs: [],
+      loading: true,
+    }
 
   }
 
   componentDidMount() {
     fetch('/blogs')
       .then(res => res.json())
-      .then(blogs => this.setState({blogs: blogs.blogs}));
+      .then(blogs => this.setState({ blogs: blogs.blogs}))
+      .then( () => this.setState({ loading: false}))
+      .catch();
   }
 
   render() {
@@ -71,6 +76,9 @@ class App extends Component {
       <Header/>
        <ul className='list'>
           { this.blogs }
+          <li className={this.state.loading === true ? 'loading' : 'not-loading'}>
+            <div class="loader">Loading...</div>
+          </li>
        </ul>
        <Footer/>
       </div>
