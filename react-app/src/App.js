@@ -37,6 +37,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      lastupdated: '',
       blogs: [],
       loading: true,
     }
@@ -46,7 +47,7 @@ class App extends Component {
   componentDidMount() {
     fetch('/blogs')
       .then(res => res.json())
-      .then(blogs => this.setState({ blogs: blogs.blogs}))
+      .then(blogs => this.setState({lastupdated: blogs.updated, blogs: blogs.blogs}))
       .then( () => this.setState({ loading: false}))
       .catch();
   }
@@ -54,27 +55,26 @@ class App extends Component {
   render() {
     this.blogs = this.state.blogs.map((blog) => {
 
-      console.log(blog.url)
-
       return (
         <li className="list-item" key={blog.id}>
-          <a href={blog.url} target={'_blank'}>
-          
+          <a href={blog.url} target={'_blank'}>       
           <img height="12" width="12" alt={`${blog.name}'s blog favicon`} src={`https://www.google.com/s2/favicons?domain=${blog.url}`} />
-
-
           {blog.name}
-          
           </a>
         </li>
       )
-  
     })
+
+    this.lastUpdated = function() {
+      let newDate = Date.now() - this.state.lastupdated;
+      return new Date(newDate).getSeconds();
+    }
 
     return (
       <div className="App">
       <Header/>
        <ul className='list'>
+          <li className={'list-item'}>Last Updated: { this.lastUpdated() }s ago</li>
           { this.blogs }
           <li className={this.state.loading === true ? 'loading' : 'not-loading'}>
             <div class="loader">Loading...</div>
