@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
+    "heroku-postbuild": "cd react-app && npm install && npm run build"
   },
   "dependencies": {
     "axios": "^0.18.0",
