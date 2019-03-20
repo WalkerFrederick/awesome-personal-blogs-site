@@ -44,6 +44,14 @@
   min-height: 100vh;
 }
 
+/* data associated with list: last updated, filter (not implimented yet)  */
+.list-data {
+  text-align: center !important;
+  width: 50% !important;
+  font-size: .9rem;
+  color: #3D4852;
+}
+
 .list-item {
   padding: 15px 0;
   border-top: 1px solid #e3e3e3;

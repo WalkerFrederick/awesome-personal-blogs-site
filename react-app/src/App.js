@@ -74,7 +74,7 @@ class App extends Component {
       <div className="App">
       <Header/>
        <ul className='list'>
-          <li className={'list-item'}>Last Updated: { this.lastUpdated() }s ago</li>
+          <li className={'list-item list-data'}>Last Updated: { this.lastUpdated() }s ago</li>
           { this.blogs }
           <li className={this.state.loading === true ? 'loading' : 'not-loading'}>
             <div class="loader">Loading...</div>
