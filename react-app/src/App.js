@@ -25,7 +25,7 @@ const Footer = () => {
       <a target="_blank" href="https://github.com/jkup/awesome-personal-blogs">
         Original List by Jon Kuperman on GitHub
       </a>
-      <a target="_blank" href="https://github.com/walkerfrederick/awesome-personal-blogs-site/>
+      <a target="_blank" href="https://github.com/walkerfrederick/awesome-personal-blogs-site">
         View Source
       </a>
     </footer>
